@@ -1,0 +1,29 @@
+def count_frequency(S):
+    """Counts the frequency of characters in a string.
+
+    Args:
+        S: A string.
+
+    Returns:
+        A string with the counts of characters concatenated together with spaces.
+    """
+
+    result = ""
+    count = 1
+    for i in range(1, len(S)):
+        if S[i] == S[i - 1]:
+            count += 1
+        else:
+            result += str(count) + str(S[i - 1]) + ' '
+            count = 1
+    result += str(count) + str(S[-1])
+    return result
+
+def main():
+    """Main function."""
+    S = input("Enter a string: ")
+    frequency = count_frequency(S)
+    print(frequency)
+
+if __name__ == "__main__":
+    main()
